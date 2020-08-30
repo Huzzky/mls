@@ -1,0 +1,48 @@
+{
+  "name": "my-letter-social",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.5.0",
+    "@testing-library/user-event": "^7.2.1",
+    "axios": "^0.19.2",
+    "bad-words": "^3.0.3",
+    "es6-promise": "^4.2.8",
+    "history": "^5.0.0",
+    "isomorphic-fetch": "^2.2.1",
+    "js-cookie": "^2.2.1",
+    "leaflet": "^1.6.0",
+    "mapbox": "^1.0.0-beta10",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-leaflet": "^2.7.0",
+    "react-markdown": "^4.3.1",
+    "react-scripts": "^3.4.3",
+    "react-yandex-maps": "^4.4.0",
+    "uuid": "^8.3.0",
+    "uuid4": "^2.0.2",
+    "ymaps": "^0.2.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

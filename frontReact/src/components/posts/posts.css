@@ -1,0 +1,98 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.t-Div-post{
+    display: flex;
+    flex-flow: row nowrap;
+    margin-bottom: 0em;
+
+}
+
+.p-div-post:first-child{
+    
+}
+.down-panel-post{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-top: 7em;
+}
+
+.secDiv-post {
+    margin-bottom: 1em;
+}
+
+.AppDivMain {
+    background-color: #E9EBEE;
+}
+
+.btn-createpost {
+    padding: 0.8em 5em;
+}
+
+.t-Div-post {
+    padding-top: 1em;
+    padding-bottom: 0.4em;
+    display: flex;
+    justify-content: space-between;
+}
+
+.mainDiv-post{
+    border: 2px solid #E9EBEE;
+    background-color: #FFFFFF;
+    margin-top: 2em;
+
+    border-radius: 10px;
+    margin-right: 0.5em;
+    margin-left: 0.5em;
+}
+
+.no-post{
+    border: 2px solid #E9EBEE;
+    background-color: #FFFFFF;
+    margin-top: 2em;
+    padding-top: 2em;
+    padding-bottom: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    border-radius: 10px;
+    margin-right: 1em;
+    margin-left: 1em;
+    
+}
+
+.post-und{
+    align-self: center;
+    font-size: 36px;
+}
+.f-div-post{
+    margin-left: 1em;
+    margin-right: 1em;
+}
+
+.hr-post {
+    border: 1px solid #EEEEEE;
+    margin-left: 1em;
+    margin-right: 1em;
+}
+    
+.user_post{
+    padding-left: 1.5em;
+    font-size: 22px;
+}
+
+.date_post {
+    padding-right: 2em;
+}
+
+.p-div-post-content{
+    font-size: 24px;
+    padding-top: 0.8em;
+}
+
+.img-user-post {
+    padding-right: 0.4em;
+}

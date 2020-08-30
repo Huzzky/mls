@@ -1,0 +1,9 @@
+.main-div-map{
+    background-color: white;
+}
+
+.second-div-map{
+    display: flex;
+    justify-content: center;
+    border-radius: 10px;
+}
