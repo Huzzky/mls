@@ -2,6 +2,26 @@ import React from 'react'
 import './aboutSite.css'
 
 export default class AboutSite extends React.Component{
+    constructor(props) {
+        super(props);
+        this.state = {
+            userInSiteSecond: 0,
+        }
+    }
+
+    tickTime() {
+        this.setState(state => ({
+          userInSiteSecond: state.userInSiteSecond + 1
+        }));
+      }
+      
+      componentDidMount() {
+        this.interval = setInterval(() => this.tickTime(), 1000)
+      }
+      
+      componentWillUnmount() {
+        clearInterval(this.interval);
+      }
 
     render() {
         return(
@@ -9,6 +29,7 @@ export default class AboutSite extends React.Component{
                 <div className="sec-div-as">
                     <div className="third-div-as">
                         <h1 className="h1-main-as">Welcome!</h1>
+                        Время на сайте: {this.state.userInSiteSecond}
                         <p className="p-as">
                         Далеко-далеко за словесными горами в стране гласных и согласных живут <a href="https://ru.wikipedia.org/wiki/Lorem_ipsum">рыбные тексты</a>. 
                         Вдали от всех живут они в буквенных домах на берегу Семантика большого языкового океана. 

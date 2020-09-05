@@ -11,13 +11,14 @@ class App extends Component {
       super(props);
       this.state = {
         dataGetPosts: [],
+        
       }
       this.createNewPost = this.createNewPost.bind(this);
       this.changeColor = this.changeColor.bind(this);
     }
 
-    
 
+    
     createNewPost(post) {
       return postAPost(post)
       // console.log(post)
@@ -29,6 +30,7 @@ class App extends Component {
     render() {
       return (
         <div className="AppDivMain">
+          
           {/* <button onClick={this.changeColor}>Поменять цвет</button> */}
           <AboutSite/>
           <CreatePost onSubmit={this.createNewPost} updatePost={this.updatePosts}/>

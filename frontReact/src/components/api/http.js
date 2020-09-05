@@ -3,7 +3,7 @@ import axios from 'axios';
 
 export function getPost(){
     const axios = require('axios');
-    return axios.get('http://192.168.1.67:8000/mls/pg/?format=json')
+    return axios.get('http://192.168.1.66:8000/mls/pg/?format=json')
     .catch(function(error) {
         console.log(error)
     })
@@ -12,7 +12,7 @@ export function getPost(){
 
 export function postAPost(data){
     // console.log(data)
-    axios.post('http://192.168.1.67:8000/mls/pp/', {
+    axios.post('http://192.168.1.66:8000/mls/pp/', {
             
                 "posts": {
                     content_post: data.content_post,
