@@ -23,6 +23,8 @@ class Posts extends Component{
         .then( response => {
             if(response.status>=200){
                     const DATA_TEST = response.data.posts;
+                    const COOKIE_POST = response.data.cookie;
+                    console.log(COOKIE_POST)
                         this.setState({
                             data: DATA_TEST,
                             isLoaded:true

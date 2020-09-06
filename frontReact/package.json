@@ -8,6 +8,7 @@
     "@testing-library/user-event": "^7.2.1",
     "axios": "^0.19.2",
     "bad-words": "^3.0.3",
+    "django-react-csrftoken": "^1.0.4",
     "es6-promise": "^4.2.8",
     "history": "^5.0.0",
     "isomorphic-fetch": "^2.2.1",

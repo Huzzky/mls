@@ -4,6 +4,9 @@ import axios from 'axios';
 export function getPost(){
     const axios = require('axios');
     return axios.get('http://192.168.1.66:8000/mls/pg/?format=json')
+    .then(function(data) {
+        console.log(data.data.cookie);
+    })
     .catch(function(error) {
         console.log(error)
     })
@@ -28,5 +31,5 @@ export function postAPost(data){
     }
 
 export function postDelete(id){
-    axios.delete('http://192.168.1.67:8000/mls/pd/'+id)
+    axios.delete('http://192.168.1.66:8000/mls/pd/'+id)
 }
