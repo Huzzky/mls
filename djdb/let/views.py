@@ -2,57 +2,28 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.decorators import api_view
 from rest_framework.generics import get_object_or_404
-from django.views.decorators.csrf import csrf_protect
 from django.http import HttpResponse
-import json
-from django.views.decorators.csrf import ensure_csrf_cookie
+from django.contrib.auth import authenticate
 
 from .models import Post, User
 from .serializers import PostSerializerGet, PostSerializerPost, UserSerializer
 
 
 
-@csrf_protect
-@api_view(["GET"])
-def setting_cookie_get(request):
-    # posts = Post.objects.all()
-    # cokie = request.COOKIES['Learning']
-    # # serializerPost = PostSerializerGet(posts, many=True)
-    # cokie = request.COOKIES
-    # response =  HttpResponse(json.dumps(
-    #                {'cookie':request.COOKIES["Learning"]}
-    #            ), content_type='application/json')
-    # return response
-    request.session['cookieS'] = "testAOAOA"
-    return Response({
-        # "posts" : serializerPost.data,
-        "cookie" : request.session['cookieS']
-    })
-
-
-
-@csrf_protect
-@api_view(["POST"])
-def setting_cookie(request):
-    print(request.data['cookie'])
-    x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
-    print(request.META.get('CONTENT_LENGHT'))
-    if x_forwarded_for:
-        ip = x_forwarded_for.split(',')[0]
-    else:
-        ip = request.META.get('REMOTE_ADDR')
-    print(ip)
-    response = HttpResponse(content_type='application/json')
-
-    return HttpResponse()
-    
-
-
-    # response =  HttpResponse(json.dumps(
-    #                {'cookie':request.COOKIES['Learning']}
-    #            ))
-    # response.set_cookie('hello','world')
-    # return response
+class UserAuth(APIView):
+    def post(self, request):
+        testGet = request.data.get('name_user')
+        request.session[0]='bar'
+        try:
+            a = User.objects.get(name_user='Admin')
+            print(request.session[0])
+            b = User.objects.filter(name_user="Admin")
+            print(b.get(id_user))
+            return Response({"answerAuth": True, "req": request.session[0]})
+        except:
+            return Response({"answerAuth": False})
+        
+        
 
 
 
@@ -63,13 +34,8 @@ class PostViewGet(APIView):
         serializerPost = PostSerializerGet(posts, many=True)
         return Response({
             "posts" : serializerPost.data,
-            "cookie" : request.COOKIES
         })
 
-def setCookie(request):
-    response = HttpResponse()
-    response.set_cookie('Learning', 'Django', secure=False, path='/')
-    return response
 
 class PostViewPost(APIView):
     def post(self, request):

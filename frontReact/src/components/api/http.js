@@ -5,7 +5,8 @@ export function getPost(){
     const axios = require('axios');
     return axios.get('http://192.168.1.66:8000/mls/pg/?format=json')
     .then(function(data) {
-        console.log(data.data.cookie);
+        // console.log(data.data);
+        return data
     })
     .catch(function(error) {
         console.log(error)
