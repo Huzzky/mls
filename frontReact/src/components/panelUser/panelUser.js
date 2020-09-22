@@ -6,30 +6,59 @@ export default class PanelUser extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-
+            btnBoolean: false,
+            userNameInCookie: null
         }
+        this.clickBtnLogin = this.clickBtnLogin.bind(this);
+        this.clickBtnLogout = this.clickBtnLogout.bind(this);
     }
 
     componentDidMount() {
-        Cookies.remove("name")
-        const axios = require('axios');
-        return axios.post('http://192.168.1.66:8000/mls/ua/?format=json', 
-        {'name_user' : "Admin"}
-        )
-        .then(function(data) {
-            console.log(data.data)
-            // if (data.answerAuth===true) {
-            //     console.log(data)
-            // }
+        if (Cookies.get("user")===undefined){
+            this.setState({
+                btnBoolean:false
+            })
             
+        } else if (Cookies.get("user")!==undefined) {
+            this.setState({
+                btnBoolean: true,
+                userNameInCookie: Cookies.get("user")
+            })
+        }
+    }
+    
+    clickBtnLogout() {
+        Cookies.remove("user")
+        this.setState({
+            btnBoolean: false,
+            userNameInCookie: null
         })
     }
 
+    clickBtnLogin() {
+        Cookies.set("user", "Admin", "secure")
+        this.setState({
+            btnBoolean: true,
+            userNameInCookie: Cookies.get("user")
+        })
+        // Cookies.remove("user")
+    }
+
     render() {
-        return(
-            <div>
-                <button>Войти</button>
-            </div>
-        )
+        const { btnBoolean, userNameInCookie } = this.state;
+        if (btnBoolean===false) {
+            return(
+                <div>
+                    <button onClick={this.clickBtnLogin}>Войти</button>
+                </div>
+            )
+        } else if (btnBoolean===true) {
+            return(
+                <div>
+                    <button onClick={this.clickBtnLogout}>{userNameInCookie}</button>
+                </div>
+            )
+        }
+        
     }
 }

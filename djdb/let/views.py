@@ -5,6 +5,12 @@ from rest_framework.generics import get_object_or_404
 from django.http import HttpResponse
 from django.contrib.auth import authenticate
 
+
+from importlib import import_module
+from django.conf import settings
+SessionStore = import_module(settings.SESSION_ENGINE).SessionStore
+from django.contrib.sessions.backends.db import SessionStore
+
 from .models import Post, User
 from .serializers import PostSerializerGet, PostSerializerPost, UserSerializer
 
@@ -13,15 +19,13 @@ from .serializers import PostSerializerGet, PostSerializerPost, UserSerializer
 class UserAuth(APIView):
     def post(self, request):
         testGet = request.data.get('name_user')
-        request.session[0]='bar'
         try:
-            a = User.objects.get(name_user='Admin')
-            print(request.session[0])
-            b = User.objects.filter(name_user="Admin")
-            print(b.get(id_user))
-            return Response({"answerAuth": True, "req": request.session[0]})
+            a = User.objects.get(name_user=testGet)
+            request.session["Admin"] = "mini"
+            return Response({"answerAuth": True, "req": request.session["Admin"]})
         except:
             return Response({"answerAuth": False})
+
         
         
 

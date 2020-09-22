@@ -5,6 +5,12 @@ import AboutSite from './components/md/aboutSite';
 import Ads from './components/ads/ads';
 import './app.css'
 import PanelUser from './components/panelUser/panelUser';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
 // import Cookies from 'js-cookie';
 
@@ -17,7 +23,6 @@ class App extends Component {
       }
       this.createNewPost = this.createNewPost.bind(this);
     }
-
     
     createNewPost(post) {
       return postAPost(post)
