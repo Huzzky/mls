@@ -1,5 +1,11 @@
 import React from 'react'
 import Cookies from 'js-cookie'
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link
+  } from "react-router-dom";
 
 
 export default class PanelUser extends React.Component {
@@ -36,21 +42,19 @@ export default class PanelUser extends React.Component {
     }
 
     clickBtnLogin() {
-        Cookies.set("user", "Admin", "secure")
-        this.setState({
-            btnBoolean: true,
-            userNameInCookie: Cookies.get("user")
-        })
-        // Cookies.remove("user")
+        this.props.userOrAuth("Auth")
     }
 
     render() {
         const { btnBoolean, userNameInCookie } = this.state;
         if (btnBoolean===false) {
             return(
-                <div>
-                    <button onClick={this.clickBtnLogin}>Войти</button>
-                </div>
+                <Router>
+                    <div>
+                        <Link to='/auth' onClick={this.clickBtnLogin}>Войти</Link>
+                    </div>
+                </Router>
+                
             )
         } else if (btnBoolean===true) {
             return(
