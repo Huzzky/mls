@@ -26,11 +26,6 @@ class UserAuth(APIView):
         except:
             return Response({"answerAuth": False})
 
-        
-        
-
-
-
 class PostViewGet(APIView):
     def get(self, request):
         posts = Post.objects.all()
